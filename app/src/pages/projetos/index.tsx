@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import imgApi1 from '../../assets/images/api.png';
 import imgPortfolio from '../../assets/images/portifolio.png';
 import useCardData from '../../hooks/useCardData';
-import Detalhes from '../../hooks/Detalhes';
+
 import Detalhe from '../../components/detalhe';
 
 
@@ -16,17 +16,25 @@ export default function Projetos() {
     const cardList = [
       { imgSrc: imgApi1, 
         title: 'API-2023-1', 
-        description: 'Site dedicado a apoiar pessoas com doenças renais crônicas e aqueles que convivem com elas, oferecendo um espaço para compartilhar histórias, trocar experiências e encontrar informações úteis.' },
+        description: 'Site dedicado a apoiar pessoas com doenças renais crônicas e aqueles que convivem com elas, oferecendo um espaço para compartilhar histórias, trocar experiências e encontrar informações úteis.',
+        repositorio: 'https://github.com/TeamHiveAPI/API-2023.2'
+      },
       { imgSrc: imgPortfolio,
         title: 'API-2024-2 Equipe Sync',
-        description: 'Sistema de Service Desk personalizável, que permite a criação e gestão de chamados com diferentes níveis de acesso. Conta com chat integrado, cadastro de usuários e funcionalidades de monitoramento de chamados, oferecendo uma experiência mais eficiente e controlada para a equipe de suporte.' },
+        description: 'Sistema de Service Desk personalizável, que permite a criação e gestão de chamados com diferentes níveis de acesso. Conta com chat integrado, cadastro de usuários e funcionalidades de monitoramento de chamados, oferecendo uma experiência mais eficiente e controlada para a equipe de suporte.',
+        repositorio: 'https://github.com/TeamHiveAPI/API-2023.2'
+      },
       { imgSrc: imgPortfolio,
         title: 'API-2024-2 Equipe A-Sync',
-        description: 'Portal de Transparência da empresa FAPG, que permite a visualização e gestão de contratos, além de possibilitar a inserção e modificação de informações. O sistema inclui um dashboard para gerenciamento de projetos, backup de dados, registro de alterações, alertas de prazos e tratamento adequado de dados sensíveis, garantindo segurança, eficiência e conformidade.' },
+        description: 'Portal de Transparência da empresa FAPG, que permite a visualização e gestão de contratos, além de possibilitar a inserção e modificação de informações. O sistema inclui um dashboard para gerenciamento de projetos, backup de dados, registro de alterações, alertas de prazos e tratamento adequado de dados sensíveis, garantindo segurança, eficiência e conformidade.',
+        repositorio: 'https://github.com/TeamHiveAPI/API-2023.2'
+      },
       { imgSrc: imgPortfolio,
         title: 'API-2024-3 Equipe Sync',
-        description: 'Portal de Transparência da empresa FAPG, que permite a visualização e gestão de contratos, além de possibilitar a inserção e modificação de informações. O sistema inclui um dashboard para gerenciamento de projetos, backup de dados, registro de alterações, alertas de prazos e tratamento adequado de dados sensíveis, garantindo segurança, eficiência e conformidade.' }
-    ];
+        description: 'Portal de Transparência da empresa FAPG, que permite a visualização e gestão de contratos, além de possibilitar a inserção e modificação de informações. O sistema inclui um dashboard para gerenciamento de projetos, backup de dados, registro de alterações, alertas de prazos e tratamento adequado de dados sensíveis, garantindo segurança, eficiência e conformidade.',
+        repositorio: 'https://github.com/TeamHiveAPI/API-2023.2'
+      }
+      ];
 
     // Atualiza os cards diretamente usando setCards
     setCards(cardList);
@@ -51,6 +59,8 @@ export default function Projetos() {
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {card.description}
               </p>
+              
+              <div className="flex justify-between">
               <button
                 onClick={() => handleSaibaMaisClick(index)}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -60,6 +70,15 @@ export default function Projetos() {
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
               </button>
+              <a
+  href={card.repositorio}
+  target="_blank"
+  rel="noopener noreferrer"
+  className=" justify-self-end mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
+>
+  Repositorio
+</a>
+</div>
             </div>
           </div>
         ))

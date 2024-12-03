@@ -3,7 +3,7 @@ import imgProfile from '../../assets/images/profile.png';
 export default function Home(){
     return (
       <main className="container">
-        <div className="container-info flex flex-wrap justify-center text-blue-900 gap-5">  
+        <div className="container-info flex flex-wrap justify-center text-blue-900 gap-5 md:p-5 md:items-center">  
           <img className="foto rounded-full" src={imgProfile} alt="foto claudio jayme"/>
           <div className="info-box">
             <div className="info flex flex-col w-full align-middle text-xl font-extrabold">  
