@@ -7,8 +7,8 @@ export default function Home(){
           <img className="foto rounded-full" src={imgProfile} alt="foto claudio jayme"/>
           <div className="info-box">
             <div className="info flex flex-col w-full align-middle text-xl font-extrabold">  
-              <div className="m-auto">Claudio Jayme Silva Diniz</div>
-              <div className="sub-titulo flex flex-row text-lg font-bold gap-6">
+              <div className="m-auto md:text-4xl">Claudio Jayme Silva Diniz</div>
+              <div className="sub-titulo flex flex-row text-lg font-bold gap-6 justify-center">
                 <div className="titulo-line">Professor</div>
                 <div className="titulo-line">Art Educador</div>
                 <div className="titulo-line">Futuro Dev</div>

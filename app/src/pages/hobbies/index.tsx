@@ -3,7 +3,7 @@ export default function Hobbies(){
   return (
     <main className="container">
       <div className="textos">
-            <div className="text-justify ml-6 mr-6 text-lg text-blue-700">
+            <div className="text-justify ml-6 mr-6 text-lg text-blue-800">
                 Em 2010 resolvi mudar algumas coisas em minha vida e uma delas foi que dei inicio a dança de salão, fiz aulas
                 de Samba, Bolero, Tango, Zouk, Salsa, Soltinho, porém, o que me apaixonei foi pelo Forró e um ritmo americano
                 West Coast Swing. No qual fiz parte de um grupo de dança por 11 anos, o grupo Sette Oitto, onde fiz varias
