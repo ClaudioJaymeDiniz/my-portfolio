@@ -1,6 +1,5 @@
 import '../../index.css'
 
-
 export default function Carreira(){
     return (
       <>
@@ -12,48 +11,48 @@ export default function Carreira(){
                 <div className="text-lg text-blue-900 font-bold">
                     Desenvolvimento de Software Multiplataforma
                 </div>
-                <div className="text-lg text-blue-700">
+                <div className="text-lg text-blue-700 ml-6">
                     Faculdade Tecnologica - Prof. Jessen Vidal FATEC SJC: Cursando.
                 </div>
                 <div className="text-lg text-blue-900 font-bold">
                     Análise e Desenvolvimento de Sistema
                 </div> 
-                <div className="text-lg text-blue-700">
+                <div className="text-lg text-blue-700 ml-6">
                     Faculdade Tecnologica - Prof. Jessen Vidal FATEC SJC: Trancado.
                 </div>
-                <div className="text-xl text-blue-900 font-extrabold">
+                <div className="text-xl text-blue-900 font-extrabold mt-2">
                     Ensino Técnico
                 </div>
                 <div className="text-lg text-blue-900 font-bold inline-block">
                     Técnico em Informática:
                 </div>
-                <div className="text-lg text-blue-700"> 
+                <div className="text-lg text-blue-700 ml-6"> 
                     Faculdade Bilac - Concluído em Fev/2015.
                 </div>
                 <div className="text-lg text-blue-900 font-bold inline-block">
                     Produção Áudio Visual:
                 </div> 
-                <div className="text-lg text-blue-700">
+                <div className="text-lg text-blue-700 ml-6">
                     Fundação Cultural - Concluído em Dez/2018.
                 </div>
             
-                <div className="text-xl text-blue-900 font-extrabold">
+                <div className="text-xl text-blue-900 font-extrabold mt-2">
                     Idiomas
                 </div>    
     
-                <ul>
+                <ul className="ml-6">
                     <li className='text-blue-800 font-bold text-lg'>Inglês - Básico</li>
                     <li className='text-blue-800 font-bold text-lg'>Espanhol - Básico</li>
                 </ul>
                 
-                <div className="text-xl text-blue-900 font-extrabold">
+                <div className="text-xl text-blue-900 font-extrabold mt-2">
                     Experiencia
                 </div>
                 
                 <div className="container-experiencia">
                     <div className="experiencia">
                         <div className="text-lg text-blue-900 font-bold">
-                            2022 - atual - Ajas
+                            2022 - 2024 - Ajas
                         </div>
                         <div className="text-lg text-blue-800 font-semibold">
                             Cargo: Educador
@@ -64,7 +63,7 @@ export default function Carreira(){
                     </div>
                     <div className="experiencia">
                         <div className="text-lg exp-titulo text-blue-900 font-bold">
-                            2024 - atual - Celebreiros
+                            2024 - contrato - Celebreiros
                         </div>
                         <div className="exp-cargo text-blue-800 font-semibold">
                             Cargo: Art-Educador
@@ -89,22 +88,9 @@ export default function Carreira(){
 
                 </div>
             
-                {/* <div className="text-blue-900 font-bold">
-                2019 a 2020 - Escola SuperGeeks
-                </div>
-                <div className="text-blue-800 font-semibold">
-                Cargo: Instrutor de Informática - Estágio.
-                </div>
-                <div className="text-justify ml-6 mr-6 text-lg text-blue-700">
-                Principais atividades: Criação de material didático, conteúdo para as aulas e planejamento,
-                relatórios sobre alunos e documentação das atividades
-                </div>
-                 */}
-            
-        
             </div>
         </main>
       </>
     )
-  }
+}
   

@@ -40,10 +40,11 @@ export default function Projetos() {
     setSelectedIndex(index);
   };
   return (
-    <main className="container gap-6 pt-5 pb-5">
+    <main className="container gap-6 pt-5 pb-5 m-auto">
     {selectedIndex === null ? (
         cards.map((card, index) => (
-          <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow
+           dark:bg-gray-800 dark:border-gray-700 ">
             <a href="#">
               <img className="rounded-t-lg" src={card.imgSrc} alt="" />
             </a>
