@@ -1,7 +1,7 @@
 # my-portfolio
 <img src="/mgt/profile.png" width="400" heigth="400">
 Criação de um sistema para utilizar como página pessoal.
-<p>Pode ser acessado via <a href="https://portifolio-claudiojayme.vercel.app"> Link </a></p>
+<p>Pode ser acessado via <a href="https://my-portfolio-claudiojayme.vercel.app"> Link </a></p>
 
 
 ## Ferramentas utilizadas
@@ -20,4 +20,4 @@ Clique na opção !Code" e selecione a opção SSH. Copie o link e no terminal e
   npm install<br>
   npm run dev
   
-Tambem pode ser acessado via vercel <a href="https://portifolio-claudiojayme.vercel.app"> Link!</a>
+Tambem pode ser acessado via vercel <a href="https://my-portfolio-claudiojayme.vercel.app"> Link!</a>
