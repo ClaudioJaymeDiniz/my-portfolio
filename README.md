@@ -1,5 +1,5 @@
 # my-portfolio
-<img src="/mgt/profile.png" width="400" heigth="400">
+<img src="app/src/assets/images/profile.png" width="400" heigth="400">
 Criação de um sistema para utilizar como página pessoal.
 <p>Pode ser acessado via <a href="https://my-portfolio-claudiojayme.vercel.app"> Link </a></p>
 
