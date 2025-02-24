@@ -30,7 +30,7 @@ export default function Carreira(){
                     Faculdade Bilac - Concluído em Fev/2015.
                 </div>
                 <div className="text-lg text-blue-900 font-bold inline-block">
-                    Produção Áudio Visual:
+                    Produção Áudiovisual:
                 </div> 
                 <div className="text-lg text-blue-700 ml-6">
                     Fundação Cultural - Concluído em Dez/2018.
@@ -46,7 +46,7 @@ export default function Carreira(){
                 </ul>
                 
                 <div className="text-xl text-blue-900 font-extrabold mt-2">
-                    Experiencia
+                    Experiência
                 </div>
                 
                 <div className="container-experiencia">
@@ -66,10 +66,10 @@ export default function Carreira(){
                             2024 - contrato - Celebreiros
                         </div>
                         <div className="exp-cargo text-blue-800 font-semibold">
-                            Cargo: Art-Educador
+                            Cargo: Arte Educador
                         </div>
                         <div className="exp-descricao text-justify ml-6 mr-6 text-lg text-blue-700">
-                        <div className="font-semibold inline-block"> Principais atividades:</div> Aulas de produção, áudio visual e cidadania, criação de roteiros, utilização de equipamentos, edição de vídeo e produção.
+                        <div className="font-semibold inline-block"> Principais atividades:</div> Aulas de produção, áudiovisual e cidadania, criação de roteiros, utilização de equipamentos, edição de vídeo e produção.
                             Criar um local de fala para os alunos, para debater e mostrar quem são, onde vive, de forma critica e pessoal.
                         </div>
                     </div>
