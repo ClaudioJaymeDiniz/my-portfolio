@@ -4,28 +4,41 @@ import Header from './components/header/Header'
 import AppRoutes from './router/Router'
 import bgImage from './assets/images/bg.jpg' 
 
+
 export default function App() {
   return (
-    <div className="pt-10 relative min-h-screen w-full bg-brand-dark text-brand-text font-body antialiased">
+    // 'h-screen' e 'overflow-hidden' no nível mais alto garantem que o corpo do site nunca role, 
+    // apenas a área de conteúdo (main).
+    <div className="relative h-screen w-full bg-brand-dark text-brand-text font-body antialiased overflow-hidden">
       
-     
+      {/* Background - Camada Fixa */}
       <div 
-        className="fixed inset-0 z-0 opacity-5 mix-blend-lighten pointer-events-none"
-        style={{
-          backgroundImage: `url(${bgImage})`,
+        className="fixed inset-0 z-0 opacity-5 pointer-events-none"
+        style={{ 
+          backgroundImage: `url(${bgImage})`, 
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'hue-rotate(180deg) brightness(0.8)'
+          backgroundPosition: 'center' 
         }}
       ></div>
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Router>
+      {/* Container Principal em Flex Column */}
+      <div className="relative z-10 flex flex-col h-full w-full">
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          
           <Header />
-          <main className="flex-grow">
-            <AppRoutes />
+          
+          {/* - flex-grow: ocupa todo o espaço entre header e footer.
+            - pt-20: compensa a altura do Header h-20.
+            - overflow-y-auto: permite scroll apenas aqui dentro se a página for longa.
+          */}
+          <main className="flex-grow pt-20 overflow-y-auto overflow-x-hidden flex flex-col">
+            <div className="flex-grow">
+              <AppRoutes />
+            </div>
           </main>
+
           <Footer />
+          
         </Router>
       </div>
     </div>

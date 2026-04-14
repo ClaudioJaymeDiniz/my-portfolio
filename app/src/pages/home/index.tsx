@@ -1,29 +1,63 @@
 import imgProfile from '../../assets/images/profile.png';
 
-export default function Home(){
-    return (
-      <main className="container">
-        <div className="container-info flex flex-wrap justify-center text-blue-900 gap-5 md:p-5 md:items-center">  
-          <img className="foto rounded-full" src={imgProfile} alt="foto claudio jayme"/>
-          <div className="info-box">
-            <div className="info flex flex-col w-full align-middle text-xl font-extrabold">  
-              <div className="m-auto md:text-4xl">Claudio Jayme Silva Diniz</div>
-              <div className="sub-titulo flex flex-row text-lg font-bold gap-6 justify-center">
-                <div className="titulo-line">Professor</div>
-                <div className="titulo-line">Art Educador</div>
-                <div className="titulo-line">Futuro Dev</div>
-              </div>
-            </div>
+export default function Home() {
+  return (
+    // 'min-h-[calc(100vh-160px)]' desconta a altura aproximada do Header e Footer para evitar scroll desnecessário
+    <main className="h-full flex items-center justify-center py-6 px-6">
+      <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+        
+        {/* LADO DA FOTO */}
+        <div className="relative">
+          {/* Brilho fixo atrás da foto - sem grayscale agora */}
+          <div className="absolute -inset-1 bg-brand-neon opacity-20 blur-2xl"></div>
+          
+          <div className="relative">
+            <img 
+              className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-2 border-brand-neon/40 shadow-2xl" 
+              src={imgProfile} 
+              alt="foto claudio jayme"
+            />
+            {/* <div className="absolute -bottom-1 -right-1 bg-brand-dark border border-brand-neon text-brand-neon text-[9px] font-bold px-2 py-0.5 uppercase tracking-tighter">
+              Maker Mode
+            </div> */}
           </div>
         </div>
-          <div className="text-justify md:text-center ml-6 mr-6 text-lg text-blue-700">
-              Olá, sou Claudio Jayme, atualmente aluno do curso de Desenvolvimento Multi Plataforma na FATEC - Professor
-              Jessen Vidal.
-              Professor de tecnologia para crianças de escolas publicas em São José dos Campos e participo de projetos da
-              Celebreiros com educomunicação, transformando jovens em protagonistas.
-            </div>
-      </main>  
-    )
-}
 
-  
+        {/* LADO DA INFORMAÇÃO */}
+        <div className="flex-1 text-center md:text-left">
+          <header className="space-y-3 mb-6">
+            <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-brand-white leading-tight">
+              Claudio <span className="text-brand-neon">Jayme</span>
+            </h1>
+            
+            <div className="flex flex-wrap justify-center md:justify-start gap-2">
+              {['Professor', 'Art Educador', 'Futuro Dev'].map((job) => (
+                <span key={job} className="px-2 py-0.5 border border-brand-white/10 bg-brand-white/5 rounded text-brand-text text-[10px] uppercase tracking-widest">
+                  {job}
+                </span>
+              ))}
+            </div>
+          </header>
+
+          <div className="max-w-xl">
+            <p className="font-body text-base md:text-lg text-brand-text leading-relaxed mb-6">
+              Atualmente cursando <span className="text-brand-white font-medium italic">Desenvolvimento Multiplataforma</span> na FATEC SJC. 
+              Transformo a educação através da tecnologia em São José dos Campos, atuando como ponte entre o código e o protagonismo jovem.
+            </p>
+          </div>
+
+          {/* Chamada para ação (CTA) */}
+          <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+            <button className="px-6 py-2.5 bg-brand-neon text-brand-dark font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all">
+              Ver Projetos
+            </button>
+            <button className="px-6 py-2.5 border border-brand-white/20 text-brand-white font-bold uppercase text-[10px] tracking-widest hover:border-brand-neon transition-all">
+              Currículo
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  );
+}

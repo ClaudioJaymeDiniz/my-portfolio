@@ -1,68 +1,37 @@
+/* index.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
-    @apply bg-brand-dark text-brand-text font-body antialiased;
+    @apply bg-brand-dark text-brand-text font-body antialiased overflow-x-hidden;
     margin: 0;
     padding: 0;
   }
 }
 
+/* Estilo unificado para os Cards do Portfólio */
 .card-maker {
-  @apply bg-brand-card/80 backdrop-blur-sm border border-slate-700 hover:border-brand-neon transition-all duration-300;
+  @apply bg-brand-card/80 backdrop-blur-sm border border-brand-white/10 hover:border-brand-neon transition-all duration-300;
   box-shadow: 0 0 20px rgba(153, 204, 255, 0.05);
 }
 
-.foto {
-    height: 70%;
-    border-radius: 50%;
-    -webkit-box-shadow: 16px 18px 26px -7px rgba(161,169,255,0.7);
-    -moz-box-shadow: 16px 18px 26px -7px rgba(161,169,255,0.7);
-    box-shadow: 16px 18px 26px -7px rgba(161,169,255,0.7);
-}
-
 @layer utilities {
-    .page{
-        display: flex;
-        flex-direction: column;
-        width: 90vw;
-        min-height: 100vh;
-        margin: 0 auto;
-        justify-content: space-between;
-        /* background-color: #999; */
-    }
-    .social-icon {
-        width: 40px;
-        height: 40px;
-        margin: 10px;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        /* background-color: #880; */
-        overflow: auto;
-    }
+  .page {
+    @apply flex flex-col w-full max-w-[1440px] min-h-screen mx-auto;
+    /* Removemos o 90vw para não "esmagar" o site em telas ultra-wide */
+  }
 
+  /* Removemos .container e .foto daqui para usar as classes do Tailwind direto nos componentes,
+     evitando conflitos de altura fixa */
 }
+
 @layer components {
-    .footer {
-     @apply flex items-center justify-center pb-1 pt-1
-    }
-}
-
-@media (min-width: 768px) {
-    
-    .foto {
-        width: 50%;
-        height: 50%;
-    }
+  /* O Footer agora é estilizado via classes no próprio componente para ser mais dinâmico */
+  .footer-container {
+     @apply w-full flex items-center justify-center py-4;
+  }
 }

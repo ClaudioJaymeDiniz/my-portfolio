@@ -1,88 +1,102 @@
 import { useEffect, useState } from 'react';
 import imgApi1 from '../../assets/images/api.png';
 import imgApi2 from '../../assets/images/api2.png';
-import useCardData from '../../hooks/useCardData';
 import imgApi3 from '../../assets/images/fapg.jpg';
-
+import useCardData from '../../hooks/useCardData';
 import Detalhe from '../../components/detalhe';
-
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function Projetos() {
-  const { cards, setCards } = useCardData(); // Agora setCards é acessível
+  const { cards, setCards } = useCardData();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const handleBackClick = () => {
-    setSelectedIndex(null);
-  };
+
+  const handleBackClick = () => setSelectedIndex(null);
+
   useEffect(() => {
     const cardList = [
-      { imgSrc: imgApi1, 
-        title: 'API-2023-1', 
-        description: 'Site dedicado a apoiar pessoas com doenças renais crônicas e aqueles que convivem com elas, oferecendo um espaço para compartilhar histórias, trocar experiências e encontrar informações úteis.',
+      { 
+        imgSrc: imgApi1, 
+        title: 'API 1º Semestre', 
+        description: 'Plataforma de apoio para pacientes renais crônicos. Foco em UX e compartilhamento de experiências.',
         repositorio: 'https://github.com/TeamHiveAPI/API-2023.2'
       },
-      { imgSrc: imgApi2,
-        title: 'API-2024-2',
-        description: 'Sistema de Service Desk personalizável, que permite a criação e gestão de chamados com diferentes níveis de acesso. Conta com chat integrado, cadastro de usuários e funcionalidades de monitoramento de chamados, oferecendo uma experiência mais eficiente e controlada para a equipe de suporte.',
+      { 
+        imgSrc: imgApi2,
+        title: 'API 2º Semestre',
+        description: 'Sistema de Service Desk com gestão de chamados, chat integrado e níveis de acesso personalizados.',
         repositorio: 'https://github.com/TeamHiveAPI/API-2023.2'
       },
-      { imgSrc: imgApi3,
-        title: 'API-2024-3',
-        description: 'Portal de Transparência da empresa FAPG, que permite a visualização e gestão de contratos, além de possibilitar a inserção e modificação de informações. O sistema inclui um dashboard para gerenciamento de projetos, backup de dados, registro de alterações, alertas de prazos e tratamento adequado de dados sensíveis, garantindo segurança, eficiência e conformidade.',
+      { 
+        imgSrc: imgApi3,
+        title: 'API 3º Semestre',
+        description: 'Portal de Transparência FAPG. Gestão de contratos, dashboards e conformidade com dados sensíveis.',
         repositorio: 'https://github.com/Sync-FATEC/API-2024.2-3SEM.git'
       },
-      
-      ];
-
-    // Atualiza os cards diretamente usando setCards
+    ];
     setCards(cardList);
-  }, []); // O array vazio [] garante que o efeito seja executado apenas uma vez
-  const handleSaibaMaisClick = (index: number) => {
-    setSelectedIndex(index);
-  };
+  }, [setCards]);
+
+  const handleSaibaMaisClick = (index: number) => setSelectedIndex(index);
+
   return (
-    <main className="container gap-6 pt-5 pb-5 m-auto">
-    {selectedIndex === null ? (
-        cards.map((card, index) => (
-          <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow
-           dark:bg-gray-800 dark:border-gray-700 ">
-            <a href="#">
-              <img className="rounded-t-lg" src={card.imgSrc} alt="" />
-            </a>
-            <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-blue-900 dark:text-white">
+    <main className="flex-grow flex flex-col items-center py-10 px-6">
+      {selectedIndex === null ? (
+        <>
+          <header className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-brand-white uppercase tracking-tighter">
+              Meus <span className="text-brand-neon">Projetos</span>
+            </h2>
+            <div className="h-1 w-20 bg-brand-neon/50 mx-auto mt-4 rounded-full"></div>
+          </header>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
+            {cards.map((card, index) => (
+              <div key={index} className="card-maker flex flex-col overflow-hidden group">
+                {/* Overlay da Imagem */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    src={card.imgSrc} 
+                    alt={card.title} 
+                  />
+                  <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-transparent transition-colors duration-300"></div>
+                </div>
+
+                {/* Conteúdo do Card */}
+                <div className="p-6 flex flex-col flex-grow gap-4">
+                  <h3 className="text-xl font-bold text-brand-white font-heading tracking-wide">
                     {card.title}
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-blue-800 dark:text-gray-400">
-                  {card.description}
-                </p>
-                
-                <div className="flex justify-between items-baseline">
-                <button
-                  onClick={() => handleSaibaMaisClick(index)}
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
-                   text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 
-                   focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700
-                  dark:focus:ring-blue-800">
-                  Saiba mais
-                  <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                  </svg>
-                </button>
-                <a href={card.repositorio} target="_blank" rel="noopener noreferrer"
-                  className=" justify-self-end mt-4 inline-flex items-center px-3 py-2 
-                  text-sm font-medium text-center text-white bg-blue-700 rounded-lg 
-                  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
-                  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">
-                  Repositório
-                </a>
+                  </h3>
+                  <p className="text-brand-text/70 text-sm font-body leading-relaxed flex-grow">
+                    {card.description}
+                  </p>
+                  
+                  <div className="flex gap-3 pt-4">
+                    <button
+                      onClick={() => handleSaibaMaisClick(index)}
+                      className="flex-1 px-4 py-2 bg-brand-neon text-brand-dark font-bold text-[10px] uppercase tracking-widest hover:bg-brand-white transition-all flex items-center justify-center gap-2"
+                    >
+                      <FaExternalLinkAlt /> Detalhes
+                    </button>
+                    <a 
+                      href={card.repositorio} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 border border-brand-white/20 text-brand-white hover:border-brand-neon transition-all flex items-center justify-center"
+                      title="Repositório"
+                    >
+                      <FaGithub size={18} />
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))
+        </>
       ) : (
-        <Detalhe index={selectedIndex} onBack={handleBackClick} />
+        <div className="w-full max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <Detalhe index={selectedIndex} onBack={handleBackClick} />
+        </div>
       )}
     </main>
   );
