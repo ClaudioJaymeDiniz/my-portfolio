@@ -2,96 +2,62 @@ import { NavLinks } from "./Nav-Links"
 import { useState } from "react";
 
 export default function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
-
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const closeMenu = () => setIsNavOpen(false);
 
   return (
-    <div className="flex items-center justify-between py-8 h-16">
-      
-      <nav>
-        <section className="MOBILE-MENU flex lg:hidden">
-          <div
-            className="HAMBURGER-ICON space-y-2"
-            onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
-          >
-            <span className="block h-0.5 w-8 animate-pulse bg-blue-800"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-blue-800"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-blue-800"></span>
-          </div>
+    // 'fixed' garante que o Header acompanhe a rolagem
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-brand-white/10 bg-brand-dark/90 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
+        
+        {/* LOGO */}
+        <div className="font-heading text-xl font-bold text-brand-white">
+          C<span className="text-brand-neon">J</span>
+        </div>
 
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}> 
-            <div
-              className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-              onClick={closeMenu} // change isNavOpen state to false to close the menu
+        <nav>
+          {/* MENU MOBILE */}
+          <section className="flex lg:hidden">
+            {/* Botão Hamburger - Z-index alto para ficar acima do menu aberto */}
+            <button
+              className="space-y-1.5 z-[60] relative p-2"
+              onClick={() => setIsNavOpen((prev) => !prev)}
+              aria-label="Menu"
             >
-              <svg
-                className="h-8 w-8 text-blue-600"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
+              <span className={`block h-0.5 w-8 bg-brand-neon transition-all duration-300 ${isNavOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+              <span className={`block h-0.5 w-8 bg-brand-neon transition-all duration-300 ${isNavOpen ? "opacity-0" : ""}`}></span>
+              <span className={`block h-0.5 w-8 bg-brand-neon transition-all duration-300 ${isNavOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+            </button>
+
+            {/* Overlay do Menu Mobile */}
+            <div className={`fixed inset-0 h-screen w-screen bg-brand-dark/95 backdrop-blur-xl flex flex-col items-center justify-center transition-all duration-500 ease-in-out z-50 ${
+              isNavOpen ? "opacity-100 visible" : "opacity-0 invisible translate-x-full"
+            }`}>
+              <ul className="flex flex-col items-center gap-10">
+                <li className="text-2xl"><NavLinks href="/" onClick={closeMenu}>Home</NavLinks></li>
+                <li className="text-2xl"><NavLinks href="/carreira" onClick={closeMenu}>Carreira</NavLinks></li>
+                <li className="text-2xl"><NavLinks href="/projetos" onClick={closeMenu}>Projetos</NavLinks></li>
+                <li className="text-2xl"><NavLinks href="/hobbies" onClick={closeMenu}>Hobbies</NavLinks></li>
+              </ul>
             </div>
-            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-              <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-                <NavLinks href="/" onClick={closeMenu}>Home</NavLinks>
-              </li>
-              <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-                <NavLinks href="/carreira" onClick={closeMenu}>Carreira</NavLinks>
-              </li>
-              <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-                <NavLinks href="/projetos" onClick={closeMenu}>Projetos</NavLinks>
-              </li>
-              <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-                <NavLinks href="/hobbies" onClick={closeMenu}>Hobbies</NavLinks>
-              </li>
-            </ul>
-          </div>
-        </section>
+          </section>
 
-        <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-            <NavLinks href="/">Home</NavLinks>
-          </li>
-          <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-            <NavLinks href="/carreira">Carreira</NavLinks>
-          </li>
-          <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-            <NavLinks href="/projetos">Projetos</NavLinks>
-          </li>
-          <li className="border-b border-blue-400 my-8 uppercase text-blue-900 font-bold">
-            <NavLinks href="/hobbies">Hobbies</NavLinks>
-          </li>
-        </ul>
-      </nav>
-      <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: linear-gradient(to top, 
-        rgba(245, 246, 252, 0.8),
-        rgba(86, 201, 255, 0.8) );
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-    `}</style>
+          {/* MENU DESKTOP */}
+          <ul className="hidden lg:flex items-center space-x-10">
+            <li><NavLinks href="/">Home</NavLinks></li>
+            <li><NavLinks href="/carreira">Carreira</NavLinks></li>
+            <li><NavLinks href="/projetos">Projetos</NavLinks></li>
+            <li><NavLinks href="/hobbies">Hobbies</NavLinks></li>
+          </ul>
+        </nav>
 
-    </div>
+        {/* Let's Build - Escondido no mobile para não poluir */}
+        <div className="hidden lg:block">
+           <a href="#contato" className="px-5 py-2 border border-brand-neon/50 text-brand-neon font-body text-xs font-bold uppercase tracking-tighter hover:bg-brand-neon/10 transition-all">
+             Let's Build
+           </a>
+        </div>
+      </div>
+    </header>
   );
 }

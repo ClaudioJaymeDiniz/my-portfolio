@@ -9,6 +9,19 @@ export default {
       backgroundImage: {
         'bg-pattern': "url('./src/assets/images/bg.jpg')"
     },
+    colors: {
+        brand: {
+          dark: "#0f172a",    // Fundo principal (Slate 900)
+          card: "#1e293b",    // Fundo dos cards (Slate 800)
+          neon: "#99ccff",    // Sua cor principal (Azul Maker)
+          text: "#cbd5e1",    // Texto secundário (Slate 300)
+          white: "#f1f5f9",   // Títulos e destaques (Slate 100)
+        }
+      },
+      fontFamily: {
+        heading: ["'Space Grotesk'", "sans-serif"], // Para títulos impactantes
+        body: ["'Poppins'", "sans-serif"],          // Para descrições e menus
+      },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -29,3 +42,6 @@ export default {
   plugins: [],
 }
 }
+
+
+
