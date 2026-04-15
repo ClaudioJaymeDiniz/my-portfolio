@@ -1,14 +1,14 @@
 import imgProfile from '../../assets/images/profile.png';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    // 'min-h-[calc(100vh-160px)]' desconta a altura aproximada do Header e Footer para evitar scroll desnecessário
+    
     <main className="h-full flex items-center justify-center py-6 px-6">
       <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-8 lg:gap-12">
         
         {/* LADO DA FOTO */}
         <div className="relative">
-          {/* Brilho fixo atrás da foto - sem grayscale agora */}
           <div className="absolute -inset-1 bg-brand-neon opacity-20 blur-2xl"></div>
           
           <div className="relative">
@@ -17,9 +17,9 @@ export default function Home() {
               src={imgProfile} 
               alt="foto claudio jayme"
             />
-            {/* <div className="absolute -bottom-1 -right-1 bg-brand-dark border border-brand-neon text-brand-neon text-[9px] font-bold px-2 py-0.5 uppercase tracking-tighter">
-              Maker Mode
-            </div> */}
+            <div className="absolute -bottom-1 -right-1 bg-brand-dark border border-brand-neon text-brand-neon text-[9px] font-bold px-2 py-0.5 uppercase tracking-tighter">
+              EM CONSTRUÇÃO
+            </div>
           </div>
         </div>
 
@@ -48,12 +48,23 @@ export default function Home() {
 
           {/* Chamada para ação (CTA) */}
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
-            <button className="px-6 py-2.5 bg-brand-neon text-brand-dark font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all">
-              Ver Projetos
-            </button>
-            <button className="px-6 py-2.5 border border-brand-white/20 text-brand-white font-bold uppercase text-[10px] tracking-widest hover:border-brand-neon transition-all">
-              Currículo
-            </button>
+            {/* Link para a página interna de Projetos */}
+            <Link to="/projetos">
+              <button className="px-6 py-2.5 bg-brand-neon text-brand-dark font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all">
+                Ver Projetos
+              </button>
+            </Link>
+
+            {/* Link para o seu Currículo (PDF) */}
+            <a 
+              href="/curriculo-claudio-jayme.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button className="px-6 py-2.5 border border-brand-white/20 text-brand-white font-bold uppercase text-[10px] tracking-widest hover:border-brand-neon transition-all">
+                Currículo
+              </button>
+            </a>
           </div>
         </div>
 
